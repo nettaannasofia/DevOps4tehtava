@@ -3,11 +3,9 @@ name: My very first workflow
 on: 
   push:
     branches:
-    
-main
-  
-development
-workflow_dispatch:
+    -  main
+    -  development
+  workflow_dispatch:
 
 jobs:
 
@@ -16,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
-name: Checkout
-      uses: actions/checkout@v4.2.2
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
 
-      
-name: List all files in the repository
-      run: |
-        echo "The repository ${{github.repository}} contains the following files"
-        tree
+
+      - name: List all files in the repository
+        run: |
+          echo "The repository ${{github.repository}} contains the following files"
+          tree
